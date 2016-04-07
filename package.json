@@ -1,0 +1,24 @@
+{
+  "name": "github-stars",
+  "version": "0.1.0",
+  "description": "Github stars app with js frameworks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hawkup/github-stars.git"
+  },
+  "keywords": [
+    "github",
+    "javascript",
+    "framework"
+  ],
+  "author": "Hawkup",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hawkup/github-stars/issues"
+  },
+  "homepage": "https://github.com/hawkup/github-stars#readme"
+}
