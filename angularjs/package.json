@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "bower install",
     "prestart": "npm install && npm run compress",
-    "start": "live-server --watch=dist & npm run watch",
+    "start": "live-server --watch=dist --port=4200 --host=localhost & npm run watch",
     "clean": "rimraf dist",
     "precompress": "npm run clean",
     "compress": "gulp compress",
