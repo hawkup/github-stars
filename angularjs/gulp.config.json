@@ -4,7 +4,8 @@
     "./bower_components/angular/angular.min.js"
   ],
   "js": [
-    "app/**/*.js"
+    "app/**/*.js",
+    "!app/**/*.spec.js"
   ],
   "test": "app/**/*.spec.js",
   "sourcefolder": "./app/",
