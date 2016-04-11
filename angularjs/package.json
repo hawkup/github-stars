@@ -13,7 +13,9 @@
     "watch": "gulp watch",
     "lint": "jshint app && jscs app",
     "pretest": "npm run lint",
-    "test": "karma start karma.conf.js"
+    "test": "karma start karma.conf.js",
+    "pree2e": "webdriver-manager update",
+    "e2e": "protractor protractor.conf.js"
   },
   "keywords": [
     "github",
@@ -42,6 +44,7 @@
     "live-server": "^0.9.2",
     "mocha": "^2.4.5",
     "phantomjs-prebuilt": "^2.1.7",
+    "protractor": "^3.2.2",
     "rimraf": "^2.5.2"
   },
   "dependencies": {}

@@ -13,3 +13,12 @@ npm start
 ```
 npm run lint
 ```
+- Testing (Unit test)
+```
+npm run test
+```
+- Testing (E2E test)
+```
+npm start #run server
+npm run e2e
+```
