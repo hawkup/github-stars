@@ -2,3 +2,4 @@
 
 ## JS framework Lists
 - Emberjs
+- Angularjs
