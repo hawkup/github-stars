@@ -1,0 +1,30 @@
+{
+  "name": "angularjs-github-stars",
+  "version": "0.0.0",
+  "description": "Github Stars with AngularJS",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install && npm run compress",
+    "start": "live-server --watch=dist & npm run watch",
+    "clean": "rimraf dist",
+    "precompress": "npm run clean",
+    "compress": "gulp compress",
+    "watch": "gulp watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "github",
+    "angular"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-uglify": "^1.5.3",
+    "live-server": "^0.9.2",
+    "rimraf": "^2.5.2"
+  }
+}

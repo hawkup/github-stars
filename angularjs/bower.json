@@ -1,0 +1,17 @@
+{
+  "name": "angularjs-github-stars",
+  "description": "Github Stars with AngularJS",
+  "main": "index.js",
+  "authors": [
+    "Hawkup"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "github",
+    "angular"
+  ],
+  "homepage": "https://github.com/hawkup/github-stars",
+  "dependencies": {
+    "angular": "^1.5.3"
+  }
+}

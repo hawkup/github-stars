@@ -1,0 +1,12 @@
+{
+  "vendorjs": [
+    "./bower_components/angular/angular.min.js"
+  ],
+  "js": [
+    "app/**/*.js"
+  ],
+  "test": "app/**/*.spec.js",
+  "sourcefolder": "./app/",
+  "buildfolder": "./dist/",
+  "buildjsname": "app.js"
+}
