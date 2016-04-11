@@ -1,5 +1,5 @@
 (function () {
-  'usr strict';
+  'use strict';
 
   angular.module('app', []);
 })();

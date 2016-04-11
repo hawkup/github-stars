@@ -9,3 +9,7 @@ npm install
 ```
 npm start
 ```
+- Linting
+```
+npm run lint
+```
