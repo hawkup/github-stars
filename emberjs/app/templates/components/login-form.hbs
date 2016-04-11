@@ -1,0 +1,8 @@
+{{#if loading}}
+  loading...
+{{else}}
+  <a class='login-button' {{action 'authenticateWithGithub'}}>Login with Github</a>
+{{/if}}
+{{#if errorMessage}}
+  <p>Error {{errorMessage}}</p>
+{{/if}}

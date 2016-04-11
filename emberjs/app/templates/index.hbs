@@ -1,0 +1,8 @@
+<div class="landing">
+  <h1 class='landing__header'>Welcome {{sessionAccount.user.login}}</h1>
+  {{#if session.isAuthenticated}}
+    {{#link-to 'dashboard' class='landing__link'}}Dashboard{{/link-to}}
+  {{else}}
+    {{#link-to 'login' class='landing__link'}}Login{{/link-to}}
+  {{/if}}
+</div>

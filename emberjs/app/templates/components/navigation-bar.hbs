@@ -1,0 +1,12 @@
+<nav class="navigation-bar">
+  <ul class="navigation-bar__lists">
+    <li class="navigation-bar__item navigation-bar__item--authen">
+      {{#if session.isAuthenticated}}
+        <span>{{sessionAccount.user.login}}</span>
+        <a {{action 'logout'}}>Logout</a>
+      {{else}}
+        <a {{action 'login'}}>Login</a>
+      {{/if}}
+    </li>
+  </ul>
+</nav>

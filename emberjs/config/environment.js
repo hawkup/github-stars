@@ -25,6 +25,15 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV['torii'] = {
+      providers: {
+        'github-oauth2': {
+          apiKey: '9d7adef7a79a1db9bef4',
+          redirectUri: 'http://localhost:4200',
+          accTokenServerUri: 'https://github-token-server.herokuapp.com/token'
+        }
+      }
+    };
   }
 
   if (environment === 'test') {

@@ -1,0 +1,116 @@
+body, ul {
+  margin: 0;
+  font-family: 'Helvetica Neue';
+  padding: 0;
+}
+
+a {
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  color: #666;
+}
+
+.landing {
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.landing--login {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.landing__header {
+  font-size: 50px;
+}
+
+.landing__link {
+  border: 2px solid #DDD;
+  border-radius: 3px;
+  color: inherit;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.dashboard {
+  border-left: 2px solid #DDD;
+  left: 300px;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+}
+
+.navigation-bar {
+  background: #2196F3;
+  color: #FFF;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 20px;
+}
+
+.navigation-bar__lists {
+  list-style-type: none;
+}
+
+.navigation-bar__item {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.navigation-bar__item--authen {
+  float: right;
+}
+
+.left-sidebar {
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  position: absolute;
+  text-align: center;
+  top: 40px;
+  width: 300px;
+}
+
+.left-sidebar__avatar {
+  border-radius: 2px;
+  height: 210px;
+  width: 210px;
+}
+
+.login-button {
+  border: 2px solid #DDD;
+  border-radius: 3px;
+  color: inherit;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.repo-detail {
+  border-bottom: 1px solid #DDD;
+  padding: 10px;
+}
+
+.repo-detail__header {
+  margin: 5px 0;
+}
+
+.repo-detail__link {
+  color: inherit;
+  font-size: 12px;
+}
+
+.repo-detail__desc {
+  font-size: 15px;
+}
