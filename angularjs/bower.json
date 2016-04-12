@@ -12,6 +12,7 @@
   ],
   "homepage": "https://github.com/hawkup/github-stars",
   "dependencies": {
-    "angular": "^1.5.3"
+    "angular": "^1.5.3",
+    "angular-ui-router": "^0.2.18"
   }
 }

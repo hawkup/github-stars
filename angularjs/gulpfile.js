@@ -5,6 +5,18 @@ var concat = require('gulp-concat');
 var ngAnnotate = require('gulp-ng-annotate');
 var htmlmin = require('gulp-htmlmin');
 var templateCache = require('gulp-angular-templatecache');
+var browserSync = require('browser-sync').create();
+
+gulp.task('browser-sync', function () {
+  browserSync.init({
+    server: {
+      baseDir: "./"
+    },
+    port: 4200
+  });
+
+  gulp.watch(paths.buildfolder + paths.buildjsname).on('change', browserSync.reload);
+});
 
 gulp.task('templatecache', function () {
   return gulp.src(paths.htmltemplates)
@@ -16,11 +28,11 @@ gulp.task('templatecache', function () {
       standalone: false,
       root: 'app/'
     }))
-    .pipe(gulp.dest(paths.build));
+    .pipe(gulp.dest(paths.buildfolder));
 });
 
-gulp.task('compress', function () {
-  var source = [].concat(paths.vendorjs, paths.js);
+gulp.task('compress', ['templatecache'], function () {
+  var source = [].concat(paths.vendorjs, paths.js, paths.buildfolder + paths.buildtemplatename);
   return gulp.src(source)
     .pipe(ngAnnotate())
     .pipe(uglify({mangle: true}))

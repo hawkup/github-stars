@@ -1,9 +1,11 @@
 {
   "htmltemplates": "./app/**/*.html",
   "vendorjs": [
-    "./bower_components/angular/angular.min.js"
+    "./bower_components/angular/angular.min.js",
+    "./bower_components/angular-ui-router/release/angular-ui-router.min.js"
   ],
   "js": [
+    "app/**/*module*.js",
     "app/**/*.js",
     "!app/**/*.spec.js"
   ],
