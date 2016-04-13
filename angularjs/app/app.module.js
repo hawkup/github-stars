@@ -12,5 +12,6 @@
      */
     'app.layout',
     'app.home',
+    'app.login',
   ]);
 })();

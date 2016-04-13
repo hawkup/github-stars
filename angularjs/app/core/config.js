@@ -3,9 +3,13 @@
 
   var core = angular.module('app.core');
 
-  core.config(configure);
+  core.run(permissionConfig);
 
   /* @ngInject */
-  function configure() {
+  function permissionConfig(PermissionStore) {
+    PermissionStore
+      .definePermission('anonymous', function () {
+        return false;
+      });
   }
 })();
