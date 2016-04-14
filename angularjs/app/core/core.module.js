@@ -4,5 +4,6 @@
   angular.module('app.core', [
     'ui.router',
     'permission',
+    'satellizer',
   ]);
 })();

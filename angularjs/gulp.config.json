@@ -3,7 +3,8 @@
   "vendorjs": [
     "./bower_components/angular/angular.min.js",
     "./bower_components/angular-ui-router/release/angular-ui-router.min.js",
-    "./bower_components/angular-permission/dist/angular-permission.js"
+    "./bower_components/angular-permission/dist/angular-permission.js",
+    "./bower_components/satellizer/satellizer.min.js"
   ],
   "js": [
     "app/**/*module*.js",
