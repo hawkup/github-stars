@@ -4,10 +4,12 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var ngAnnotate = require('gulp-ng-annotate');
 var htmlmin = require('gulp-htmlmin');
+var sass = require('gulp-sass');
 var templateCache = require('gulp-angular-templatecache');
 var browserSync = require('browser-sync').create();
 
 gulp.task('browser-sync', function () {
+  var watchfile = [].concat(paths.buildfolder + paths.buildjsname, paths.buildfolder + paths.buildcssname);
   browserSync.init({
     server: {
       baseDir: "./"
@@ -15,7 +17,14 @@ gulp.task('browser-sync', function () {
     port: 4200
   });
 
-  gulp.watch(paths.buildfolder + paths.buildjsname).on('change', browserSync.reload);
+  gulp.watch(watchfile).on('change', browserSync.reload);
+});
+
+gulp.task('sass', function () {
+  return gulp.src(paths.scss)
+    .pipe(sass().on('error', sass.logError))
+    .pipe(concat(paths.buildcssname))
+    .pipe(gulp.dest(paths.buildfolder));
 });
 
 gulp.task('templatecache', function () {
@@ -41,6 +50,7 @@ gulp.task('compress', ['templatecache'], function () {
 });
 
 gulp.task('watch', function () {
-  var source = [].concat(paths.js, paths.htmltemplates)
-  gulp.watch(source, ['compress']);
+  var jssource = [].concat(paths.js, paths.htmltemplates)
+  gulp.watch(jssource, ['compress']);
+  gulp.watch(paths.scss, ['sass']);
 });

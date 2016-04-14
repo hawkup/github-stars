@@ -3,10 +3,10 @@
 
   angular
     .module('app.layout')
-    .controller('Main', Main);
+    .controller('Shell', Shell);
 
   /* @ngInject */
-  function Main() {
+  function Shell() {
     var vm = this;
   }
 })();

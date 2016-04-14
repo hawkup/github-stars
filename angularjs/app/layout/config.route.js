@@ -12,7 +12,7 @@
     $stateProvider
       .state('root', {
         abstract: true,
-        templateUrl: 'app/layout/main.html',
+        templateUrl: 'app/layout/shell.html',
       });
   }
 })();

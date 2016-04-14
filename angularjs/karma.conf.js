@@ -2,7 +2,8 @@ var paths = require('./gulp.config.json');
 
 module.exports = function (config) {
   var source = [].concat(paths.vendorjs)
-              .concat(paths.js);
+              .concat(paths.js)
+              .concat(paths.test);
   config.set({
     basePath: './',
     files: source,

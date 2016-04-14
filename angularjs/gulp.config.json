@@ -10,9 +10,16 @@
     "app/**/*.js",
     "!app/**/*.spec.js"
   ],
+  "test": [
+    "./bower_components/angular-mocks/angular-mocks.js"
+  ],
+  "scss": [
+    "app/**/*.scss"
+  ],
   "test": "app/**/*.spec.js",
   "sourcefolder": "./app/",
   "buildfolder": "./dist/",
+  "buildcssname": "styles.css",
   "buildjsname": "app.js",
   "buildtemplatename": "templates.js"
 }
