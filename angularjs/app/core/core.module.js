@@ -2,8 +2,8 @@
   'use strict';
 
   angular.module('app.core', [
-    'ui.router',
     'permission',
     'satellizer',
+    'ui.router',
   ]);
 })();

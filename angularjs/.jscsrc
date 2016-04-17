@@ -1,4 +1,5 @@
 {
   "preset": "airbnb",
-  "safeContextKeyword": ["vm"]
+  "safeContextKeyword": ["vm"],
+  "excludeFiles": ["app/**/*.spec.js"]
 }

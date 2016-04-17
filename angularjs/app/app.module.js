@@ -10,8 +10,8 @@
     /*
      * Feature areas
      */
-    'app.layout',
     'app.home',
+    'app.layout',
     'app.login',
   ]);
 })();
