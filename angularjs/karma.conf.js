@@ -3,6 +3,7 @@ var paths = require('./gulp.config.json');
 module.exports = function (config) {
   var source = [].concat(paths.vendorjs)
               .concat(paths.vendortest)
+              .concat(paths.htmltemplates)
               .concat(paths.js);
   config.set({
     basePath: './',
@@ -16,14 +17,19 @@ module.exports = function (config) {
       'karma-mocha',
       'karma-chai-plugins',
       'karma-mocha-reporter',
-      'karma-coverage'
+      'karma-coverage',
+      'karma-ng-html2js-preprocessor'
     ],
     preprocessors: {
-      'app/**/*.js': ['coverage']
+      'app/**/*.js': ['coverage'],
+      'app/**/*.html': ['ng-html2js']
     },
     coverageReporter: {
       type : 'html',
       dir : 'coverage/'
+    },
+    ngHtml2JsPreprocessor: {
+      moduleName: 'app.templates'
     }
   })
 }

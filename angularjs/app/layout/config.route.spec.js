@@ -7,13 +7,12 @@ describe('Route: Layout', function () {
 
   beforeEach(module('ui.router'));
   beforeEach(module('app'));
+  beforeEach(module('app.templates'));
 
-  beforeEach(inject(function (_$rootScope_, _$state_, _$location_, $templateCache) {
+  beforeEach(inject(function (_$rootScope_, _$state_, _$location_) {
     $rootScope = _$rootScope_;
     $state = _$state_;
     $location = _$location_;
-    $templateCache.put('app/layout/shell.html', '');
-    $templateCache.put('app/home/home.html', '');
   }));
 
   describe('root route', function () {

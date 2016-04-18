@@ -14,8 +14,9 @@ describe('Component: topnav', function () {
   beforeEach(module('ui.router'));
   beforeEach(module('app.data'));
   beforeEach(module('app.components'));
+  beforeEach(module('app.templates'));
 
-  beforeEach(inject(function (_$rootScope_, _$componentController_, _$q_, _$compile_, _githubService_, $templateCache) {
+  beforeEach(inject(function (_$rootScope_, _$componentController_, _$q_, _$compile_, _githubService_) {
     $rootScope = _$rootScope_;
     $scope = $rootScope.$new();
     $q = _$q_;
@@ -23,7 +24,6 @@ describe('Component: topnav', function () {
     githubService = _githubService_;
     sandbox = sinon.sandbox.create();
     $controller = _$componentController_;
-    $templateCache.put('app/components/topnav.html', '<div><span>{{userData.login}}</span><button ng-show="loggedIn === false">Login</button><button ng-show="loggedIn === true">Logout</button></div>');
   }));
 
   afterEach(function () {
