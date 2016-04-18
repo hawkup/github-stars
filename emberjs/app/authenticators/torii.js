@@ -21,7 +21,7 @@ export default ToriiAuthenticator.extend({
         }
       }).then((response) => {
         return {
-          access_token: response.access_token,
+          access_token: response.token,
           provider: data.provider
         };
       });
