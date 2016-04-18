@@ -41,7 +41,7 @@ gulp.task('templatecache', function () {
 });
 
 gulp.task('compress', ['templatecache'], function () {
-  var source = [].concat(paths.vendorjs, paths.js, paths.buildfolder + paths.buildtemplatename);
+  var source = [].concat(paths.vendorjs, paths.js, paths.ignorejs, paths.buildfolder + paths.buildtemplatename);
   return gulp.src(source)
     .pipe(ngAnnotate())
     .pipe(uglify({mangle: true}))
@@ -50,7 +50,7 @@ gulp.task('compress', ['templatecache'], function () {
 });
 
 gulp.task('watch', function () {
-  var jssource = [].concat(paths.js, paths.htmltemplates)
+  var jssource = [].concat(paths.js, paths.ignorejs, paths.htmltemplates)
   gulp.watch(jssource, ['compress']);
   gulp.watch(paths.scss, ['sass']);
 });

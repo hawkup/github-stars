@@ -8,10 +8,12 @@
   ],
   "js": [
     "app/**/*module*.js",
-    "app/**/*.js",
+    "app/**/*.js"
+  ],
+  "ignorejs": [
     "!app/**/*.spec.js"
   ],
-  "test": [
+  "vendortest": [
     "./bower_components/angular-mocks/angular-mocks.js"
   ],
   "scss": [
