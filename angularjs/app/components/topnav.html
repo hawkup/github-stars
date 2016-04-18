@@ -1,7 +1,7 @@
-<div class="top-nav">
-  <div class="right">
+<nav class="top-nav">
+  <div class="nav-menu -right">
     <span class="username">{{$ctrl.userData.login}}</span>
-    <button ng-show="$ctrl.loggedIn === false" class="login">Login</button>
-    <button ng-show="$ctrl.loggedIn === true" class="logout">Logout</button>
+    <a ng-show="$ctrl.loggedIn === false" class="login">Login</a>
+    <a ng-show="$ctrl.loggedIn === true" class="logout">Logout</a>
   </div>
-</div>
+</nav>

@@ -1,6 +1,16 @@
 .top-nav {
+  background: #2196F3;
+  height: 40px;
+  line-height: 40px;
   padding: 0 20px;
-  > .right {
+  width: 100%;
+  > .nav-menu {
+    color: #FFF;
+  }
+}
+
+.nav-menu {
+  &.-right {
     float: right;
   }
 }
