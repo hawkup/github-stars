@@ -6,7 +6,7 @@
     .controller('Shell', Shell);
 
   /* @ngInject */
-  function Shell() {
+  function Shell(topnav) {
     var vm = this;
   }
 })();

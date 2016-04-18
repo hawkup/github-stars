@@ -7,23 +7,52 @@ describe('Service: Github', function () {
   var userLogin = 'hawkup';
   var githubService;
   var $httpBackend;
+  var $auth;
+  var sandbox;
 
+  beforeEach(module('satellizer'));
   beforeEach(module('app.data'));
 
-  beforeEach(inject(function (_githubService_, _$httpBackend_) {
+  beforeEach(inject(function (_githubService_, _$httpBackend_, _$auth_) {
     githubService = _githubService_;
     $httpBackend = _$httpBackend_;
+    $auth = _$auth_;
+    sandbox = sinon.sandbox.create();
   }));
+
+  afterEach(function () {
+    sandbox.restore();
+  })
+
+  it('should return true when user logged-in', function () {
+    sandbox.stub(localStorage, 'getItem', function (name) {
+      if (name === 'satellizer_token') {
+        return 'token!';
+      }
+    });
+    expect(githubService.checkLoggedIn()).to.be.true;
+  });
+
+  it('should return false when user not logged-in', function () {
+    sandbox.stub(localStorage, 'getItem', function (name) {
+      return null;
+    });
+    expect(githubService.checkLoggedIn()).to.be.false;
+  });
 
   it('should return Github user data by token', function () {
     var response;
     var token = '0123456789abcdefghijklmnopqrstuvwxyz';
-    var expectUrl = 'https://api.github.com/users/' + userLogin + '?access_token=' + token;
+    var expectUrl = 'https://api.github.com/user?access_token=' + token;
+
+    sandbox.stub($auth, 'getToken', function () {
+      return token;
+    });
 
     $httpBackend.when('GET', expectUrl)
       .respond(200, userData);
 
-    githubService.getUser(userLogin, token)
+    githubService.getUser()
       .then(function (data) {
         response = data;
       });
