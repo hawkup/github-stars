@@ -53,7 +53,7 @@ describe('Component: topnav', function () {
   });
 
   it('should set userData when getUser success', function () {
-    var userData = {user: 'user'};
+    var userData = {login: 'hawkup'};
     sandbox.stub(githubService, 'checkLoggedIn', function () {
       return true;
     });
@@ -61,7 +61,7 @@ describe('Component: topnav', function () {
       var deferred = $q.defer();
       deferred.resolve(userData);
       return deferred.promise;
-    })
+    });
     var vm = $controller('topnav', {
       githubService: githubService,
       $scope: $scope
@@ -71,14 +71,42 @@ describe('Component: topnav', function () {
   });
 
   it('should show userName and logout button when logged-in', function () {
+    var userData = {login: 'hawkup'};
+    sandbox.stub(githubService, 'checkLoggedIn', function () {
+      return true;
+    });
+    sandbox.stub(githubService, 'getUser', function () {
+      var deferred = $q.defer();
+      deferred.resolve(userData);
+      return deferred.promise;
+    });
     element = angular.element('<topnav></topnav>');
     element = $compile(element)($scope);
+    var vm = $controller('topnav', {
+      githubService: githubService,
+      $scope: $scope,
+      $element: element
+    });
     $scope.$digest();
-    console.log(element.find('span'));
-    console.log(element.find('button'));
+    expect(angular.element(element[0].querySelector('.username')).text()).to.not.empty;
+    expect(angular.element(element[0].querySelector('.login')).hasClass('ng-hide')).to.be.true;
+    expect(angular.element(element[0].querySelector('.logout')).hasClass('ng-hide')).to.be.false;
   });
 
   it('should show login button when user is not logged-in', function () {
-
+    sandbox.stub(githubService, 'checkLoggedIn', function () {
+      return false;
+    });
+    element = angular.element('<topnav></topnav>');
+    element = $compile(element)($scope);
+    var vm = $controller('topnav', {
+      githubService: githubService,
+      $scope: $scope,
+      $element: element
+    });
+    $scope.$digest();
+    expect(angular.element(element[0].querySelector('.username')).text()).to.empty;
+    expect(angular.element(element[0].querySelector('.login')).hasClass('ng-hide')).to.be.false;
+    expect(angular.element(element[0].querySelector('.logout')).hasClass('ng-hide')).to.be.true;
   });
 });
