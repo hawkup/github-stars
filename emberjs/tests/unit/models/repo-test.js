@@ -1,12 +1,29 @@
 import { moduleForModel, test } from 'ember-qunit';
 
 moduleForModel('repo', 'Unit | Model | repo', {
-  // Specify the other units that are required for this test.
   needs: []
 });
 
-test('it exists', function(assert) {
+test('it has an attribute: name', function(assert) {
   let model = this.subject();
-  // let store = this.store();
-  assert.ok(!!model);
+  let hasAttr = Object.keys(model.toJSON()).indexOf('name') > -1;
+  assert.ok(hasAttr);
+});
+
+test('it has an attribute: full_name', function(assert) {
+  let model = this.subject();
+  let hasAttr = Object.keys(model.toJSON()).indexOf('full_name') > -1;
+  assert.ok(hasAttr);
+});
+
+test('it has an attribute: html_url', function(assert) {
+  let model = this.subject();
+  let hasAttr = Object.keys(model.toJSON()).indexOf('html_url') > -1;
+  assert.ok(hasAttr);
+});
+
+test('it has an attribute: description', function(assert) {
+  let model = this.subject();
+  let hasAttr = Object.keys(model.toJSON()).indexOf('description') > -1;
+  assert.ok(hasAttr);
 });
