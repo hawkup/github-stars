@@ -15,8 +15,8 @@ export default DS.Adapter.extend({
         dataType: 'json'
       }).then((response) => {
         resolve(response);
-      }, () => {
-        reject();
+      }).catch((error) => {
+        reject(error);
       });
     });
   }

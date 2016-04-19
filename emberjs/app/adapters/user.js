@@ -18,8 +18,8 @@ export default DS.Adapter.extend({
         }
       }).then((response) => {
         resolve(response);
-      }, () => {
-        reject();
+      }).catch((error) => {
+        reject(error);
       });
     });
   }
