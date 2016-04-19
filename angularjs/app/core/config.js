@@ -3,6 +3,20 @@
 
   var core = angular.module('app.core');
 
+  core.run(permission);
+
+  /* @ngInject */
+  function permission(permissionHelper, userService) {
+    var configs = [
+      {
+        state: 'root.login',
+        permission: !userService.checkLoggedIn(),
+        redirect: 'root.home',
+      },
+    ];
+    permissionHelper.configure(configs);
+  }
+
   core.config(authConfig);
 
   /* @ngInject */

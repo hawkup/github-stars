@@ -6,6 +6,7 @@
      * Shared modules
      */
     'app.core',
+    'app.services',
 
     /*
      * Feature areas
