@@ -10,11 +10,37 @@
     <script src="_polymer.js"></script>
   </head>
   <body>
-    <paper-header-panel>
-      <paper-toolbar>
-        <span class="title">Title</span>
-      </paper-toolbar>
-      <my-greeting></my-greeting>
-    </paper-header-panel>
+    <template is="dom-bind" id="app">
+      <paper-header-panel>
+        <paper-toolbar>
+          <span class="title">Title</span>
+        </paper-toolbar>
+        <iron-pages attr-for-selected="data-route" selected="{{route}}">
+          <section data-route="home">
+            <a class="paper-item-link" href$="{{baseUrl}}greeting">
+              <paper-item>Go To Greeting</paper-item>
+            </a>
+          </section>
+          <section data-route="greeting">
+            <my-greeting></my-greeting>
+          </section>
+        </iron-pages>
+      </paper-header-panel>
+    </template>
+    <style is="custom-style">
+      .paper-item-link {
+        color: inherit;
+        text-decoration: none;
+      }
+    </style>
+    <script>
+      (function() {
+        'use strict';
+
+        var app = document.querySelector('#app');
+
+        app.baseUrl = '/';
+      })();
+    </script>
   </body>
 </html>
