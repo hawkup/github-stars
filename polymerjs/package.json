@@ -1,0 +1,25 @@
+{
+  "name": "polymerjs-github-stars",
+  "version": "0.0.0",
+  "description": "Github Stars with PolymerJS",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npm install && bower install && npm run build",
+    "start": "gulp serve",
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "build": "gulp build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hawkup",
+  "license": "MIT",
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "browser-sync": "^2.12.3",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-uglify": "^1.5.3",
+    "gulp-vulcanize": "^6.1.0",
+    "rimraf": "^2.5.2"
+  }
+}
