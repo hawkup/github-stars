@@ -9,7 +9,7 @@
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
     "build": "gulp build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "wct"
   },
   "author": "Hawkup",
   "license": "MIT",
@@ -20,6 +20,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-uglify": "^1.5.3",
     "gulp-vulcanize": "^6.1.0",
-    "rimraf": "^2.5.2"
+    "rimraf": "^2.5.2",
+    "web-component-tester": "^4.2.2"
   }
 }

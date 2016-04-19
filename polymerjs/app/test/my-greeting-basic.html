@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>my-greeting-basic</title>
+
+  <script src="../../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <script src="../../bower_components/web-component-tester/browser.js"></script>
+
+  <!-- Import the element to test -->
+  <link rel="import" href="../elements/my-greeting/my-greeting.html">
+
+</head>
+<body>
+
+  <test-fixture id="basic">
+    <template>
+      <my-greeting></my-greeting>
+    </template>
+  </test-fixture>
+
+  <script>
+    suite('my-greeting tests', function() {
+      var greeting, text;
+      setup(function() {
+        greeting = fixture('basic');
+      });
+      test('Hello World', function() {
+        text = greeting.$$('span');
+        assert.equal(text.textContent, 'Hello World');
+      });
+    });
+  </script>
+
+</body>
+</html>
