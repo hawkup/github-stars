@@ -13,12 +13,6 @@
         templateUrl: 'app/login/login.html',
         controller: 'Login',
         controllerAs: 'vm',
-        data: {
-          permissions: {
-            only: ['anonymous'],
-            redirectTo: 'root.home',
-          },
-        },
       });
   }
 })();

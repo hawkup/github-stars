@@ -5,7 +5,6 @@
     'app.data',
     'app.components',
 
-    'permission',
     'satellizer',
     'ui.router',
   ]);
