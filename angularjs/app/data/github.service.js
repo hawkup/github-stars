@@ -8,16 +8,11 @@
   /* @ngInject */
   function githubService($http, $q, $auth) {
     var service = {
-      checkLoggedIn: checkLoggedIn,
       getStarred: getStarred,
       getUser: getUser,
     };
 
     return service;
-
-    function checkLoggedIn() {
-      return $auth.getToken() !== null ? true : false;
-    }
 
     function getStarred(userLogin) {
       var deferred = $q.defer();

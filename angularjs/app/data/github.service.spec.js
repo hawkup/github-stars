@@ -22,22 +22,6 @@ describe('Service: Github', function () {
 
   afterEach(function () {
     sandbox.restore();
-  })
-
-  it('should return true when user logged-in', function () {
-    sandbox.stub(localStorage, 'getItem', function (name) {
-      if (name === 'satellizer_token') {
-        return 'token!';
-      }
-    });
-    expect(githubService.checkLoggedIn()).to.be.true;
-  });
-
-  it('should return false when user not logged-in', function () {
-    sandbox.stub(localStorage, 'getItem', function (name) {
-      return null;
-    });
-    expect(githubService.checkLoggedIn()).to.be.false;
   });
 
   it('should return Github user data by token', function () {

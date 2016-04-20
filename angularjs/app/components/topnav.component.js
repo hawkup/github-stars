@@ -4,30 +4,23 @@
   angular
     .module('app.components', [])
     .component('topnav', {
+      bindings: {
+        user: '<',
+      },
       controller: Topnav,
       templateUrl: 'app/components/topnav.html',
     });
 
   /* @ngInject */
-  function Topnav(githubService) {
+  function Topnav() {
     var vm = this;
 
-    vm.userData = {};
-    vm.loggedIn = checkLoggedIn();
+    vm.loggedIn = false;
 
-    if (vm.loggedIn === true) {
-      getUser();
-    }
+    vm.$onChanges = $onChanges;
 
-    function checkLoggedIn() {
-      return githubService.checkLoggedIn();
-    }
-
-    function getUser() {
-      return githubService.getUser()
-        .then(function (data) {
-          vm.userData = data;
-        });
+    function $onChanges(changesObj) {
+      vm.loggedIn = angular.isObject(changesObj.user.currentValue);
     }
   }
 })();

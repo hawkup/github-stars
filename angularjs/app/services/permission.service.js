@@ -7,6 +7,7 @@
 
   /* @ngInject */
   function permissionHelperProvider($stateProvider) {
+    /* jshint validthis:true */
     this.$get = PermissionHelper;
 
     /* @ngInject */

@@ -5,7 +5,7 @@
     .module('app.data')
     .factory('userService', userService);
 
-    /* @ngInject */
+  /* @ngInject */
   function userService($q, $auth, githubService) {
     var userData = null;
     var service = {
@@ -30,6 +30,7 @@
             deferred.resolve(userData);
           });
       }
+
       return deferred.promise;
     }
 

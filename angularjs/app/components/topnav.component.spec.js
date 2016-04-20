@@ -1,13 +1,11 @@
 'use strict';
 
 describe('Component: topnav', function () {
+  var user;
   var $controller;
-  var $rootScope;
   var $scope;
-  var $q;
   var $compile;
   var element;
-  var githubService;
   var sandbox;
 
   beforeEach(module('satellizer'));
@@ -16,77 +14,39 @@ describe('Component: topnav', function () {
   beforeEach(module('app.components'));
   beforeEach(module('app.templates'));
 
-  beforeEach(inject(function (_$rootScope_, _$componentController_, _$q_, _$compile_, _githubService_) {
-    $rootScope = _$rootScope_;
+  beforeEach(inject(function ($rootScope, _$componentController_, _$compile_) {
     $scope = $rootScope.$new();
-    $q = _$q_;
     $compile = _$compile_;
-    githubService = _githubService_;
     sandbox = sinon.sandbox.create();
     $controller = _$componentController_;
+    user = {"login":"hawkup","id":2748846,"avatar_url":"https://avatars.githubusercontent.com/u/2748846?v=3","gravatar_id":"","url":"https://api.github.com/users/hawkup","html_url":"https://github.com/hawkup","followers_url":"https://api.github.com/users/hawkup/followers","following_url":"https://api.github.com/users/hawkup/following{/other_user}","gists_url":"https://api.github.com/users/hawkup/gists{/gist_id}","starred_url":"https://api.github.com/users/hawkup/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/hawkup/subscriptions","organizations_url":"https://api.github.com/users/hawkup/orgs","repos_url":"https://api.github.com/users/hawkup/repos","events_url":"https://api.github.com/users/hawkup/events{/privacy}","received_events_url":"https://api.github.com/users/hawkup/received_events","type":"User","site_admin":false,"name":null,"company":null,"blog":null,"location":null,"email":null,"hireable":null,"bio":null,"public_repos":23,"public_gists":51,"followers":7,"following":0,"created_at":"2012-11-08T06:52:46Z","updated_at":"2016-04-01T22:24:06Z"};
   }));
 
   afterEach(function () {
     sandbox.restore();
   });
 
-  it('should call checkLoggedIn', function () {
-    var checkLoggedIn = sandbox.spy(githubService, 'checkLoggedIn');
-    $controller('topnav', {
-      githubService: githubService,
-      $scope: $scope
-    });
-    expect(checkLoggedIn.calledOnce).to.be.true;
+  it('should set loggedIn to be false when user is null', function () {
+    var vm = $controller('topnav',
+      { $scope: $scope },
+      { user: null }
+    );
+    expect(vm.loggedIn).to.be.false;
   });
 
-  it('should call getUser when logged-in', function () {
-    var getUser = sandbox.spy(githubService, 'getUser');
-    sandbox.stub(githubService, 'checkLoggedIn', function () {
-      return true;
-    });
-    var vm = $controller('topnav', {
-      githubService: githubService,
-      $scope: $scope
-    });
+  it('should set loggedIn to be true when user exist', function () {
+    var vm = $controller('topnav',
+      { $scope: $scope },
+      { user: null }
+    );
+    vm.$onChanges({user: {currentValue: user}});
     expect(vm.loggedIn).to.be.true;
-    expect(getUser.calledOnce).to.be.true;
-  });
-
-  it('should set userData when getUser success', function () {
-    var userData = {login: 'hawkup'};
-    sandbox.stub(githubService, 'checkLoggedIn', function () {
-      return true;
-    });
-    sandbox.stub(githubService, 'getUser', function () {
-      var deferred = $q.defer();
-      deferred.resolve(userData);
-      return deferred.promise;
-    });
-    var vm = $controller('topnav', {
-      githubService: githubService,
-      $scope: $scope
-    });
-    $scope.$digest();
-    expect(vm.userData).to.eql(userData);
   });
 
   it('should show userName and logout button when logged-in', function () {
-    var userData = {login: 'hawkup'};
-    sandbox.stub(githubService, 'checkLoggedIn', function () {
-      return true;
-    });
-    sandbox.stub(githubService, 'getUser', function () {
-      var deferred = $q.defer();
-      deferred.resolve(userData);
-      return deferred.promise;
-    });
-    element = angular.element('<topnav></topnav>');
+    element = angular.element('<topnav user="user"></topnav>');
     element = $compile(element)($scope);
-    var vm = $controller('topnav', {
-      githubService: githubService,
-      $scope: $scope,
-      $element: element
-    });
+    $scope.user = user;
     $scope.$digest();
     expect(angular.element(element[0].querySelector('.username')).text()).to.not.empty;
     expect(angular.element(element[0].querySelector('.login')).hasClass('ng-hide')).to.be.true;
@@ -94,16 +54,10 @@ describe('Component: topnav', function () {
   });
 
   it('should show login button when user is not logged-in', function () {
-    sandbox.stub(githubService, 'checkLoggedIn', function () {
-      return false;
-    });
-    element = angular.element('<topnav></topnav>');
+    user = null;
+    element = angular.element('<topnav user="user"></topnav>');
     element = $compile(element)($scope);
-    var vm = $controller('topnav', {
-      githubService: githubService,
-      $scope: $scope,
-      $element: element
-    });
+    $scope.user = user;
     $scope.$digest();
     expect(angular.element(element[0].querySelector('.username')).text()).to.empty;
     expect(angular.element(element[0].querySelector('.login')).hasClass('ng-hide')).to.be.false;
