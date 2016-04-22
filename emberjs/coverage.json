@@ -1,18 +1,18 @@
 {
   "stats": {
     "suites": 53,
-    "tests": 62,
-    "passes": 62,
+    "tests": 67,
+    "passes": 67,
     "pending": 0,
     "failures": 0,
-    "start": "2016-04-19T17:09:27.849Z",
-    "end": "2016-04-19T17:09:29.235Z"
+    "start": "2016-04-22T18:57:27.446Z",
+    "end": "2016-04-22T18:57:29.089Z"
   },
   "coverage": {
     "total": {
       "statementsTotal": 210,
-      "statementsCovered": 138,
-      "percentage": 65.71
+      "statementsCovered": 144,
+      "percentage": 68.57
     },
     "files": [
       {
@@ -40,9 +40,15 @@
         "percentage": 100
       },
       {
-        "name": "emberjs/services/session-account",
-        "statementsTotal": 12,
-        "statementsCovered": 12,
+        "name": "emberjs/components/login-form",
+        "statementsTotal": 7,
+        "statementsCovered": 7,
+        "percentage": 100
+      },
+      {
+        "name": "emberjs/components/navigation-bar",
+        "statementsTotal": 5,
+        "statementsCovered": 5,
         "percentage": 100
       },
       {
@@ -52,16 +58,10 @@
         "percentage": 100
       },
       {
-        "name": "emberjs/components/login-form",
-        "statementsTotal": 7,
-        "statementsCovered": 3,
-        "percentage": 42.86
-      },
-      {
-        "name": "emberjs/components/navigation-bar",
-        "statementsTotal": 5,
-        "statementsCovered": 3,
-        "percentage": 60
+        "name": "emberjs/services/session-account",
+        "statementsTotal": 12,
+        "statementsCovered": 12,
+        "percentage": 100
       },
       {
         "name": "emberjs/components/repo-detail",
