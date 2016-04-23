@@ -17,7 +17,7 @@ gulp.task('compress', function () {
 });
 
 gulp.task('vulcanize', function () {
-  return gulp.src('app/elements/elements.html')
+  return gulp.src('app/elements/my-app.html')
     .pipe(vulcanize({
       stripComments: true,
       inlineCss: true,

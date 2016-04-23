@@ -22,7 +22,9 @@
     "paper-styles": "polymerelements/paper-styles#^1.1.4",
     "iron-pages": "polymerelements/iron-pages#^1.0.7",
     "page": "visionmedia/page.js#^1.7.1",
-    "paper-item": "polymerelements/paper-item#^1.2.1"
+    "paper-item": "polymerelements/paper-item#^1.2.1",
+    "carbon-route": "^0.8.4",
+    "iron-elements": "^1.0.10"
   },
   "devDependencies": {
     "web-component-tester": "polymer/web-component-tester#^4.2.2"
