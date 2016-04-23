@@ -1,1 +1,9 @@
-<div>Home</div>
+<div class="home-section">
+  <h1 class="header">Welcome {{vm.userData.login}}</h1>
+  <a class="link -login" ng-show="vm.loggedIn === false" ui-sref="root.login">
+    Login
+  </a>
+  <a class="link -dashboard" ng-show="vm.loggedIn === true" ui-sref="root.dashboard">
+    Dashboard
+  </a>
+</div>
