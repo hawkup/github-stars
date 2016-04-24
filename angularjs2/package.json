@@ -23,7 +23,6 @@
     "zone.js": "^0.6.12"
   },
   "devDependencies": {
-    "es6-promise": "^3.1.2",
     "path": "^0.12.7",
     "ts-loader": "^0.8.2",
     "tslint": "^3.8.0",
