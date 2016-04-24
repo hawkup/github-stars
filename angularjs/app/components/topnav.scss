@@ -13,4 +13,9 @@
   &.-right {
     float: right;
   }
+
+  > .link {
+    color: inherit;
+    text-decoration: none;
+  }
 }

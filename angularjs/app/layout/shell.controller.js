@@ -9,6 +9,7 @@
   function Shell(userService) {
     var vm = this;
     vm.userData = null;
+    vm.onLogout = onLogout;
 
     getUser();
 
@@ -20,6 +21,10 @@
         .catch(function () {
           vm.userData = null;
         });
+    }
+
+    function onLogout() {
+      userService.logout();
     }
   }
 })();

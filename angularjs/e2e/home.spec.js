@@ -10,7 +10,7 @@ describe('Home e2e test', function () {
   describe('Not logged-in', function () {
     it('should go to login page when click login button on nav', function () {
       var topNav = element(by.css('.top-nav'));
-      topNav.element(by.css('.login')).click();
+      topNav.element(by.css('.-login')).click();
       browser.getCurrentUrl().then(function (url) {
         expect(url).toEqual('http://localhost:4200/#/login');
       });

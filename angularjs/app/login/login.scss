@@ -1,0 +1,15 @@
+.login-section {
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  > .link {
+    border: 2px solid #DDD;
+    border-radius: 3px;
+    color: inherit;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+}

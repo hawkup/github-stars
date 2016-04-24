@@ -6,12 +6,13 @@
     .factory('userService', userService);
 
   /* @ngInject */
-  function userService($q, $auth, githubService) {
+  function userService($q, $auth, $window, githubService) {
     var userData = null;
     var service = {
       checkLoggedIn: checkLoggedIn,
       getUser: getUser,
       logout: logout,
+      setUser: setUser,
     };
 
     return service;
@@ -22,21 +23,32 @@
 
     function getUser() {
       var deferred = $q.defer();
-      if (userData !== null) {
-        deferred.resolve(userData);
+
+      if (checkLoggedIn() === false) {
+        deferred.reject();
       } else {
-        githubService.getUser()
-          .then(function (userData) {
-            deferred.resolve(userData);
-          });
+        if (userData !== null) {
+          deferred.resolve(userData);
+        } else {
+          githubService.getUser()
+            .then(function (userData) {
+              setUser(userData);
+              deferred.resolve(userData);
+            });
+        }
       }
 
       return deferred.promise;
     }
 
     function logout() {
-      userData = null;
+      setUser(null);
       $auth.logout();
+      $window.location.reload();
+    }
+
+    function setUser(data) {
+      userData = data;
     }
   }
 })();

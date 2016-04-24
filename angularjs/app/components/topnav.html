@@ -1,7 +1,7 @@
 <nav class="top-nav">
   <div class="nav-menu -right">
     <span class="username">{{$ctrl.user.login}}</span>
-    <a ng-show="$ctrl.loggedIn === false" class="login">Login</a>
-    <a ng-show="$ctrl.loggedIn === true" class="logout">Logout</a>
+    <a ng-show="$ctrl.loggedIn === false" class="link -login" ui-sref="root.login">Login</a>
+    <a ng-show="$ctrl.loggedIn === true" class="link -logout" ng-click="$ctrl.logout()">Logout</a>
   </div>
 </nav>
