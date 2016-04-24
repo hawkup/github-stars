@@ -1,0 +1,33 @@
+{
+  "name": "angularjs2-github-stars",
+  "version": "0.0.0",
+  "description": "Github stars with AngularJS2",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "typings install",
+    "start": "webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "github",
+    "angular2"
+  ],
+  "author": "Hawkup",
+  "license": "MIT",
+  "dependencies": {
+    "angular2": "2.0.0-beta.15",
+    "es6-shim": "^0.35.0",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.2",
+    "zone.js": "^0.6.12"
+  },
+  "devDependencies": {
+    "es6-promise": "^3.1.2",
+    "path": "^0.12.7",
+    "ts-loader": "^0.8.2",
+    "typescript": "^1.8.10",
+    "typings": "^0.8.1",
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
