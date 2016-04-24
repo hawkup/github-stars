@@ -7,7 +7,7 @@
     "postinstall": "typings install",
     "start": "webpack-dev-server",
     "lint": "tslint ./src/**/*.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start"
   },
   "keywords": [
     "github",
@@ -23,7 +23,13 @@
     "zone.js": "^0.6.12"
   },
   "devDependencies": {
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-jasmine": "^0.3.8",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-webpack": "^1.7.0",
     "path": "^0.12.7",
+    "phantomjs-prebuilt": "^2.1.7",
     "ts-loader": "^0.8.2",
     "tslint": "^3.8.0",
     "tslint-loader": "^2.1.3",
