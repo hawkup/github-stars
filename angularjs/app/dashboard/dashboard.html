@@ -1,2 +1,8 @@
-<sidebar></sidebar>
-<repo></repo>
+<div class="dashboard-section">
+  <sidebar user="vm.userData"></sidebar>
+  <div class="content-section">
+    <div class="repo-list">
+      <repo repo="repo" ng-repeat="repo in vm.starredData"></repo>
+    </div>
+  </div>
+</div>

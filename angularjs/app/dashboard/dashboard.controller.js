@@ -6,19 +6,32 @@
     .controller('Dashboard', Dashboard);
 
   /* @ngInject */
-  function Dashboard($auth, $state, $stateParams) {
+  function Dashboard(userService, githubService) {
     var vm = this;
 
-    vm.login = login;
+    vm.userData = null;
+    vm.starredData = null;
 
-    function login() {
-      $auth.authenticate('github')
-        .then(function (response) {
-          $state.transitionTo('root.home', $stateParams, {
-            reload: true,
-            inherit: false,
-            notify: true,
-          });
+    getUser();
+
+    function getUser() {
+      userService.getUser()
+        .then(function (user) {
+          vm.userData = user;
+          getStarred(vm.userData.login);
+        })
+        .catch(function () {
+          vm.userData = null;
+        });
+    }
+
+    function getStarred(login) {
+      githubService.getStarred(login)
+        .then(function (starred) {
+          vm.starredData = starred;
+        })
+        .catch(function () {
+          vm.starredData = null;
         });
     }
   }
