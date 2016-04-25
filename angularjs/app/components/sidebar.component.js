@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app.components', [])
+    .module('app.components')
     .component('sidebar', {
       bindings: {
         user: '<',
