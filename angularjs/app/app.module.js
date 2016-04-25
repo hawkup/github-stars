@@ -11,6 +11,7 @@
     /*
      * Feature areas
      */
+    'app.dashboard',
     'app.home',
     'app.layout',
     'app.login',
