@@ -4,6 +4,7 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var ngAnnotate = require('gulp-ng-annotate');
 var htmlmin = require('gulp-htmlmin');
+var template = require('gulp-template');
 var sass = require('gulp-sass');
 var templateCache = require('gulp-angular-templatecache');
 var browserSync = require('browser-sync').create();
@@ -12,7 +13,7 @@ gulp.task('browser-sync', function () {
   var watchfile = [].concat(paths.buildfolder + paths.buildjsname, paths.buildfolder + paths.buildcssname);
   browserSync.init({
     server: {
-      baseDir: "./"
+      baseDir: "./dist"
     },
     port: 4200
   });
@@ -46,6 +47,19 @@ gulp.task('compress', ['templatecache'], function () {
     .pipe(ngAnnotate())
     .pipe(uglify({mangle: true}))
     .pipe(concat(paths.buildjsname))
+    .pipe(gulp.dest(paths.buildfolder));
+});
+
+gulp.task('copy', function () {
+  return gulp.src('./bower_components/angular-mocks/angular-mocks.js', {base: './bower_components/angular-mocks/'})
+    .pipe(gulp.dest(paths.buildfolder));
+})
+
+gulp.task('build', ['compress', 'copy'], function () {
+  return gulp.src('./index.html')
+    .pipe(template({
+      script: '<script src="angular-mocks.js"></script>'
+    }))
     .pipe(gulp.dest(paths.buildfolder));
 });
 
