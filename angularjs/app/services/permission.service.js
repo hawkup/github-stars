@@ -22,7 +22,7 @@
         angular.forEach(configs, function (config) {
           $rootScope.$on('$stateChangeStart',
           function (event, toState) {
-            if (toState.name === config.state && config.permission === false) {
+            if (toState.name === config.state && config.permission() === false) {
               event.preventDefault();
               $state.go(config.redirect);
             }
