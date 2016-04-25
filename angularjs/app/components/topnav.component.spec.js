@@ -10,7 +10,6 @@ describe('Component: topnav', function () {
   var sandbox;
 
   beforeEach(module('satellizer'));
-  beforeEach(module('ui.router'));
   beforeEach(module('app.data'));
   beforeEach(module('app.components'));
   beforeEach(module('app.templates'));
