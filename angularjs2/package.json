@@ -7,7 +7,9 @@
     "postinstall": "typings install",
     "start": "webpack-dev-server",
     "lint": "tslint ./src/**/*.ts",
-    "test": "karma start"
+    "test": "karma start",
+    "pree2e": "webdriver-manager update",
+    "e2e": "protractor"
   },
   "keywords": [
     "github",
@@ -30,6 +32,7 @@
     "karma-webpack": "^1.7.0",
     "path": "^0.12.7",
     "phantomjs-prebuilt": "^2.1.7",
+    "protractor": "^3.2.2",
     "ts-loader": "^0.8.2",
     "tslint": "^3.8.0",
     "tslint-loader": "^2.1.3",
