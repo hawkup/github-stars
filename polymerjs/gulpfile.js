@@ -31,7 +31,8 @@ gulp.task('build', ['copy', 'compress', 'vulcanize']);
 
 gulp.task('serve', ['build'], function () {
   browserSync.init({
-    server: './dist'
+    server: './dist',
+    port: 4200
   });
 
   gulp.watch('app/elements/**/*.html', ['vulcanize']);
