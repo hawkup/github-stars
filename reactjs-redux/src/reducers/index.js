@@ -48,10 +48,9 @@ const counters = (state = [], action) => {
         counter(c, action)
       );
     case REMOVE_COUNTER:
-      return [
-        ...state.slice(0, action.id),
-        ...state.slice(action.id + 1)
-      ];
+      return state.filter(c =>
+        c.id != action.id
+      )
     default:
       return state;
   }
