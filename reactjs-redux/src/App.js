@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
-import Counter from './Counter';
+import React from 'react';
+import Counter from './components/Counter'
 
-export default class App extends Component {
-  render() {
-    return (
-      <div>
-        <h1>Hello ReactJS</h1>
-        <Counter />
-      </div>
-    );
-  }
-}
+const App = ({ store }) => (
+  <div>
+    <Counter
+      value={store.getState()}
+      onIncrement={() => store.dispatch({ type: 'INCREMENT' })}
+      onDecrement={() => store.dispatch({ type: 'DECREMENT' })}
+    />
+  </div>
+);
+
+export default App;
