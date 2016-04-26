@@ -1,11 +1,19 @@
 import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import logger from 'redux-logger';
 import counter from './reducers';
-import Root from './Root'
+import Root from './Root';
 
-const store = createStore(counter);
+const middleware = process.env.NODE_ENV === 'production' ?
+  [] :
+  [logger()];
+
+const store = createStore(
+  counter,
+  applyMiddleware(...middleware)
+);
 
 const rootEl = document.getElementById('root');
 
