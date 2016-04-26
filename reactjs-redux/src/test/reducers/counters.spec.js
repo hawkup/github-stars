@@ -1,5 +1,5 @@
 import expect from 'expect';
-import counters from '../../reducers';
+import { counters } from '../../reducers';
 
 describe('counters reducer', () => {
   it('should handle ADD_COUNTER', () => {

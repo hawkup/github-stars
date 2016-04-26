@@ -4,6 +4,8 @@ import {
   INCREMENT,
   DECREMENT
 } from '../constants/ActionTypes';
+import { routerReducer } from 'react-router-redux';
+import { combineReducers } from 'redux';
 
 const counter = (state, action) => {
   switch (action.type) {
@@ -35,7 +37,7 @@ const counter = (state, action) => {
   }
 }
 
-const counters = (state = [], action) => {
+export const counters = (state = [], action) => {
   switch (action.type) {
     case ADD_COUNTER:
       return [
@@ -56,4 +58,9 @@ const counters = (state = [], action) => {
   }
 }
 
-export default counters;
+const rootReducer = combineReducers({
+  counters,
+  routing: routerReducer
+});
+
+export default rootReducer;
