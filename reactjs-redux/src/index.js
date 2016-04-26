@@ -3,29 +3,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import counter from './reducers';
-import App from './App'
+import Root from './Root'
 
 const store = createStore(counter);
 
 const rootEl = document.getElementById('root');
 
-function render() {
-  ReactDOM.render(
-    <AppContainer
-      component={App}
-      props={{ store }}
-    />,
-    rootEl
-  );
-}
-render();
-store.subscribe(render);
+ReactDOM.render(
+  <AppContainer
+    component={Root}
+    props={{ store }}
+  />,
+  rootEl
+);
 
 if (module.hot) {
-  module.hot.accept('./App', () => {
+  module.hot.accept('./Root', () => {
     ReactDOM.render(
       <AppContainer
-        component={require('./App').default}
+        component={require('./Root').default}
         props={{ store }}
       />,
       rootEl
