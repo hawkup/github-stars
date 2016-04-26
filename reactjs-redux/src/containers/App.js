@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { onIncrement, onDecrement } from '../actions';
 import Counter from '../components/Counter'
 
 class App extends Component {
@@ -27,18 +28,7 @@ const mapStateToProps = (state) => {
   };
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onIncrement: () => {
-      dispatch({ type: 'INCREMENT' });
-    },
-    onDecrement: () => {
-      dispatch({ type: 'DECREMENT' });
-    }
-  };
-}
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  { onIncrement, onDecrement }
 )(App);
