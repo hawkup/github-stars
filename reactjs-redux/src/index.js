@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
-import counter from './reducers';
+import counters from './reducers';
 import Root from './Root';
 
 const middleware = process.env.NODE_ENV === 'production' ?
@@ -11,7 +11,7 @@ const middleware = process.env.NODE_ENV === 'production' ?
   [logger()];
 
 const store = createStore(
-  counter,
+  counters,
   applyMiddleware(...middleware)
 );
 

@@ -1,34 +1,43 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { onIncrement, onDecrement } from '../actions';
+import { addCounter, removeCounter, onIncrement, onDecrement } from '../actions';
 import Counter from '../components/Counter'
 
 class App extends Component {
   render() {
-    const { value, onIncrement, onDecrement } = this.props;
+    const { counters, addCounter, removeCounter, onIncrement, onDecrement } = this.props;
     return (
-      <Counter
-        value={value}
-        onIncrement={onIncrement}
-        onDecrement={onDecrement}
-      />
+      <div>
+        <button onClick={addCounter}>Add</button>
+        {counters.map(counter =>
+          <Counter
+            key={counter.id}
+            counter={counter}
+            removeCounter={removeCounter}
+            onIncrement={onIncrement}
+            onDecrement={onDecrement}
+          />
+        )}
+      </div>
     );
   }
 }
 
 App.propTypes = {
-  value: PropTypes.number.isRequired,
+  counters: PropTypes.array.isRequired,
+  addCounter: PropTypes.func.isRequired,
+  removeCounter: PropTypes.func.isRequired,
   onIncrement: PropTypes.func.isRequired,
   onDecrement: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {
   return {
-    value: state
+    counters: state
   };
 }
 
 export default connect(
   mapStateToProps,
-  { onIncrement, onDecrement }
+  { addCounter, removeCounter, onIncrement, onDecrement }
 )(App);

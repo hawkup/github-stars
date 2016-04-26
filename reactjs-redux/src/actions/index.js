@@ -1,13 +1,30 @@
 import * as types from '../constants/ActionTypes';
 
-export const onIncrement = () => {
+let nextCounter = 0;
+export const addCounter = () => {
   return {
-    type: types.INCREMENT
+    type: types.ADD_COUNTER,
+    id: nextCounter++
   };
 }
 
-export const onDecrement = () => {
+export const removeCounter = (id) => {
   return {
-    type: types.DECREMENT
+    type: types.REMOVE_COUNTER,
+    id
+  };
+}
+
+export const onIncrement = (id) => {
+  return {
+    type: types.INCREMENT,
+    id
+  };
+}
+
+export const onDecrement = (id) => {
+  return {
+    type: types.DECREMENT,
+    id
   };
 }

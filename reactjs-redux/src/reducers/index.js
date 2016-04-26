@@ -1,10 +1,60 @@
-export default function counter(state = 0, action) {
+import {
+  ADD_COUNTER,
+  REMOVE_COUNTER,
+  INCREMENT,
+  DECREMENT
+} from '../constants/ActionTypes';
+
+const counter = (state, action) => {
   switch (action.type) {
-    case 'INCREMENT':
-      return state + 1;
-    case 'DECREMENT':
-      return state - 1;
+    case ADD_COUNTER:
+      return {
+        id: action.id,
+        count: 0
+      };
+    case INCREMENT:
+      if (state.id !== action.id) {
+        return state;
+      }
+
+      return {
+        id: action.id,
+        count: state.count + 1
+      };
+    case DECREMENT:
+      if (state.id !== action.id) {
+        return state;
+      }
+
+      return {
+        id: action.id,
+        count: state.count - 1
+      };
     default:
       return state;
   }
 }
+
+const counters = (state = [], action) => {
+  switch (action.type) {
+    case ADD_COUNTER:
+      return [
+        ...state,
+        counter(undefined, action)
+      ];
+    case INCREMENT:
+    case DECREMENT:
+      return state.map(c =>
+        counter(c, action)
+      );
+    case REMOVE_COUNTER:
+      return [
+        ...state.slice(0, action.id),
+        ...state.slice(action.id + 1)
+      ];
+    default:
+      return state;
+  }
+}
+
+export default counters;
