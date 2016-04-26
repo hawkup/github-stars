@@ -2,15 +2,14 @@ import React, { Component, PropTypes } from 'react';
 
 class Counter extends Component {
   render() {
-    const { counter, removeCounter, onIncrement, onDecrement } = this.props;
+    const { counter, removeCounter, increment, decrement } = this.props;
     return (
       <p>
-        Clicked: {counter.count} times
-        {' '}
-        <button onClick={() => onIncrement(counter.id)}>
+        <span>Clicked: {counter.count} times</span>
+        <button onClick={() => increment(counter.id)}>
           +
         </button>
-        <button onClick={() => onDecrement(counter.id)}>
+        <button onClick={() => decrement(counter.id)}>
           -
         </button>
         <button onClick={() => removeCounter(counter.id)}>
@@ -24,8 +23,8 @@ class Counter extends Component {
 Counter.propTypes = {
   counter: PropTypes.object.isRequired,
   removeCounter: PropTypes.func.isRequired,
-  onIncrement: PropTypes.func.isRequired,
-  onDecrement: PropTypes.func.isRequired
+  increment: PropTypes.func.isRequired,
+  decrement: PropTypes.func.isRequired
 };
 
 export default Counter;

@@ -15,14 +15,14 @@ export const removeCounter = (id) => {
   };
 }
 
-export const onIncrement = (id) => {
+export const increment = (id) => {
   return {
     type: types.INCREMENT,
     id
   };
 }
 
-export const onDecrement = (id) => {
+export const decrement = (id) => {
   return {
     type: types.DECREMENT,
     id
