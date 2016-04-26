@@ -1,11 +1,13 @@
+import * as types from '../constants/ActionTypes';
+
 export const onIncrement = () => {
   return {
-    type: 'INCREMENT'
+    type: types.INCREMENT
   };
 }
 
 export const onDecrement = () => {
   return {
-    type: 'DECREMENT'
+    type: types.DECREMENT
   };
 }
