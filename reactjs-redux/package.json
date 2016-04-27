@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "lint": "eslint src",
-    "test": "mocha --compilers js:babel-register --require ./src/test/setup.js --recursive ./src/test/"
+    "test": "mocha --compilers js:babel-register --recursive ./src/test/"
   },
   "keywords": [
     "github",
@@ -22,10 +22,10 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.7.2",
+    "enzyme": "^2.2.0",
     "eslint": "^2.8.0",
     "eslint-plugin-react": "^5.0.1",
     "expect": "^1.18.0",
-    "jsdom": "^8.4.0",
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^15.0.1",
     "react-hot-loader": "^3.0.0-alpha.9",
