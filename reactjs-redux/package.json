@@ -28,7 +28,7 @@
     "expect": "^1.18.0",
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^15.0.1",
-    "react-hot-loader": "^3.0.0-alpha.9",
+    "react-hot-loader": "^3.0.0-alpha.13",
     "redux-logger": "^2.6.1",
     "webpack": "^1.13.0",
     "webpack-dev-server": "^1.14.1"
