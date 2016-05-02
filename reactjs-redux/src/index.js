@@ -11,20 +11,19 @@ const history = syncHistoryWithStore(browserHistory, store);
 const rootEl = document.getElementById('root');
 
 ReactDOM.render(
-  <AppContainer
-    component={Root}
-    props={{ store, history }}
-  />,
+  <AppContainer>
+    <Root store={store} history={history} />
+  </AppContainer>,
   rootEl
 );
 
 if (module.hot) {
   module.hot.accept('./Root', () => {
+    const Root = require('./Root').default;
     ReactDOM.render(
-      <AppContainer
-        component={require('./Root').default}
-        props={{ store, history }}
-      />,
+      <AppContainer>
+        <Root store={store} history={history} />
+      </AppContainer>,
       rootEl
     );
   });
