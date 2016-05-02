@@ -30,4 +30,11 @@ describe('counter actions', () => {
       id: 10
     })
   })
+
+  it('setVisibilityFilter should create SET_VISIBILITY_FILTER action', () => {
+    expect(actions.setVisibilityFilter('SHOW_ALL')).toEqual({
+      type: 'SET_VISIBILITY_FILTER',
+      filter: 'SHOW_ALL'
+    })
+  })
 })
