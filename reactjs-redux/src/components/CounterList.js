@@ -1,11 +1,18 @@
 import React, { Component, PropTypes } from 'react';
-import Counter from './Counter'
+import Counter from './Counter';
+import Filter from '../containers/Filter';
 
 class CounterList extends Component {
   render() {
     const { counters, addCounter, removeCounter, increment, decrement } = this.props;
     return (
       <div>
+        <Filter filter="SHOW_ALL">all</Filter>
+        {' '}
+        <Filter filter="SHOW_ODD">Show odd</Filter>
+        {' '}
+        <Filter filter="SHOW_EVEN">Show even</Filter>
+        {' '}
         <button onClick={addCounter}>Add</button>
         {counters.map(counter =>
           <Counter

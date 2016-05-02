@@ -28,3 +28,10 @@ export const decrement = (id) => {
     id
   };
 }
+
+export const setVisibilityFilter = (filter) => {
+  return {
+    type: types.SET_VISIBILITY_FILTER,
+    filter
+  };
+}
