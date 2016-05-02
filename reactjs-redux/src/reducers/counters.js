@@ -3,7 +3,7 @@ import {
   REMOVE_COUNTER,
   INCREMENT,
   DECREMENT
-} from '../constants/ActionTypes';
+} from '../constants/ActionTypes'
 
 const counter = (state, action) => {
   switch (action.type) {
@@ -11,27 +11,27 @@ const counter = (state, action) => {
       return {
         id: action.id,
         count: 0
-      };
+      }
     case INCREMENT:
       if (state.id !== action.id) {
-        return state;
+        return state
       }
 
       return {
         id: action.id,
         count: state.count + 1
-      };
+      }
     case DECREMENT:
       if (state.id !== action.id) {
-        return state;
+        return state
       }
 
       return {
         id: action.id,
         count: state.count - 1
-      };
+      }
     default:
-      return state;
+      return state
   }
 }
 
@@ -41,19 +41,19 @@ const counters = (state = [], action) => {
       return [
         ...state,
         counter(undefined, action)
-      ];
+      ]
     case INCREMENT:
     case DECREMENT:
       return state.map(c =>
         counter(c, action)
-      );
+      )
     case REMOVE_COUNTER:
       return state.filter(c =>
         c.id != action.id
       )
     default:
-      return state;
+      return state
   }
 }
 
-export default counters;
+export default counters

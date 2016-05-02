@@ -1,10 +1,10 @@
-import React, { Component, PropTypes } from 'react';
-import Counter from './Counter';
-import Filter from '../containers/Filter';
+import React, { Component, PropTypes } from 'react'
+import Counter from './Counter'
+import Filter from '../containers/Filter'
 
 class CounterList extends Component {
   render() {
-    const { counters, addCounter, removeCounter, increment, decrement } = this.props;
+    const { counters, addCounter, removeCounter, increment, decrement } = this.props
     return (
       <div>
         <Filter filter="SHOW_ALL">all</Filter>
@@ -24,7 +24,7 @@ class CounterList extends Component {
           />
         )}
       </div>
-    );
+    )
   }
 }
 
@@ -37,6 +37,6 @@ CounterList.propTypes = {
   removeCounter: PropTypes.func.isRequired,
   increment: PropTypes.func.isRequired,
   decrement: PropTypes.func.isRequired
-};
+}
 
-export default CounterList;
+export default CounterList

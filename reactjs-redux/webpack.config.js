@@ -1,5 +1,5 @@
-var path = require('path');
-var webpack = require('webpack');
+var path = require('path')
+var webpack = require('webpack')
 
 module.exports = {
   devtool: 'eval',
@@ -24,4 +24,4 @@ module.exports = {
       include: path.join(__dirname, 'src')
     }]
   }
-};
+}

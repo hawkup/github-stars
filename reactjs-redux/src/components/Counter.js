@@ -1,8 +1,8 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react'
 
 class Counter extends Component {
   render() {
-    const { counter, removeCounter, increment, decrement } = this.props;
+    const { counter, removeCounter, increment, decrement } = this.props
     return (
       <p>
         <span>Clicked: {counter.count} times</span>
@@ -16,7 +16,7 @@ class Counter extends Component {
           Remove
         </button>
       </p>
-    );
+    )
   }
 }
 
@@ -25,6 +25,6 @@ Counter.propTypes = {
   removeCounter: PropTypes.func.isRequired,
   increment: PropTypes.func.isRequired,
   decrement: PropTypes.func.isRequired
-};
+}
 
-export default Counter;
+export default Counter

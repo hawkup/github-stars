@@ -1,5 +1,5 @@
-import expect from 'expect';
-import counters from '../../reducers/counters';
+import expect from 'expect'
+import counters from '../../reducers/counters'
 
 describe('counters reducer', () => {
   it('should handle ADD_COUNTER', () => {
@@ -13,8 +13,8 @@ describe('counters reducer', () => {
         id: 0,
         count: 0
       }
-    ]);
-  });
+    ])
+  })
 
   it('should handle REMOVE_COUNTER', () => {
     expect(
@@ -27,8 +27,8 @@ describe('counters reducer', () => {
         type: 'REMOVE_COUNTER',
         id: 0
       })
-    ).toEqual([]);
-  });
+    ).toEqual([])
+  })
 
   it('should handle INCREMENT', () => {
     expect(
@@ -46,8 +46,8 @@ describe('counters reducer', () => {
         id: 0,
         count: 1
       }
-    ]);
-  });
+    ])
+  })
 
   it('should handle DECREMENT', () => {
     expect(
@@ -65,6 +65,6 @@ describe('counters reducer', () => {
         id: 0,
         count: -1
       }
-    ]);
-  });
-});
+    ])
+  })
+})
