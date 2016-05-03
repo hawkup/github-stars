@@ -5,14 +5,20 @@ import App from './App';
 
 const rootEl = document.getElementById('root');
 ReactDOM.render(
-  <AppContainer component={App} />,
+  <AppContainer>
+    <App />
+  </AppContainer>,
   rootEl
 );
 
 if (module.hot) {
+  // eslint-disable-next-line no-shadow, global-require
+  const App = require('./App').default;
   module.hot.accept('./App', () => {
     ReactDOM.render(
-      <AppContainer component={require('./App').default} />,
+      <AppContainer>
+        <App />
+      </AppContainer>,
       rootEl
     );
   });
