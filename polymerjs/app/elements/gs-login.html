@@ -1,0 +1,94 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/iron-localstorage/iron-localstorage.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/font-roboto/roboto.html">
+
+<dom-module id="gs-login">
+  <template>
+    <style>
+      :host {
+        font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+        font-size: 14px;
+      }
+    </style>
+
+    <iron-localstorage name="github" value="{{github}}"></iron-localstorage>
+    <iron-ajax
+      id="getToken"
+      url="https://github-token-server.herokuapp.com/token"
+      method="POST"
+      body="{{body}}"
+      handle-as="json"
+      content-type="application/x-www-form-urlencoded"
+      on-response="tokenResponse"
+      ></iron-ajax>
+    <paper-button raised>Login with Github</paper-button>
+  </template>
+  <script>
+    (function() {
+      'use strict';
+      Polymer({
+        is: 'gs-login',
+        properties: {
+          clientId: {
+            type: String,
+            value: null
+          },
+          github: {
+            type: Object
+          }
+        },
+        listeners: {
+          'tap': 'login'
+        },
+        attached: function() {
+          window.addEventListener('load', this._onLoad.bind(this));
+        },
+        detached: function() {
+          window.removeEventListener('load', this._onLoad.bind(this));
+        },
+        login: function() {
+          var self = this;
+          var githubUrl = 'https://github.com/login/oauth/authorize';
+          var githubWindow;
+
+          if (this.clientId === null) {
+            throw new Error('Cannot proceed without clientId');
+          }
+
+          githubWindow = window.open(githubUrl + '?client_id=' + this.clientId);
+          githubWindow.onunload = function() {
+            if (githubWindow.closed === true) {
+              self.body = {"code": self.github.authCode};
+              self.$.getToken.generateRequest();
+            }
+          }
+        },
+        tokenResponse: function(data) {
+          this.github = {
+            token: data.detail.response.token
+          };
+        },
+        _onLoad: function() {
+          this.authCode = this._getAuthCode(window.location.href);
+          if (this.authCode && window.opener) {
+            this.github = {
+              authCode: this.authCode
+            };
+            window.close();
+          }
+        },
+        _getAuthCode: function(url) {
+          // http://fajitanachos.com/Authenticating-with-the-GitHub-API/
+          var error = url.match(/[&\?]error=([^&]+)/);
+          var code = url.match(/[&\?]code=([\w\/\-]+)/) || '';
+          if (error) {
+            throw 'Error getting authorization code: ' + error[1];
+          }
+          return code[1];
+        }
+      });
+    })();
+  </script>
+</dom-module>

@@ -10,7 +10,7 @@ gulp.task('copy', function () {
 });
 
 gulp.task('compress', function () {
-  return gulp.src('./bower_components/webcomponentsjs/webcomponents-lite.min.js')
+  return gulp.src('./app/bower_components/webcomponentsjs/webcomponents-lite.min.js')
     .pipe(uglify({mangle: true}))
     .pipe(concat('_polymer.js'))
     .pipe(gulp.dest('./dist/'));
@@ -31,7 +31,8 @@ gulp.task('build', ['copy', 'compress', 'vulcanize']);
 
 gulp.task('serve', ['build'], function () {
   browserSync.init({
-    server: './dist'
+    server: './dist',
+    port: 4200
   });
 
   gulp.watch('app/elements/**/*.html', ['vulcanize']);

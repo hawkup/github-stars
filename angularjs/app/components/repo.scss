@@ -1,0 +1,17 @@
+.repo-component {
+  border-bottom: 1px solid #DDD;
+  padding: 10px;
+
+  > .name {
+    margin: 5px 0;
+  }
+
+  > .fullname {
+    color: inherit;
+    font-size: 12px;
+  }
+
+  > .desc {
+    font-size: 15px;
+  }
+}

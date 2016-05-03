@@ -10,8 +10,19 @@
     var configs = [
       {
         state: 'root.login',
-        permission: !userService.checkLoggedIn(),
+        permission: function () {
+          return !userService.checkLoggedIn();
+        },
+
         redirect: 'root.home',
+      },
+      {
+        state: 'root.dashboard',
+        permission: function () {
+          return userService.checkLoggedIn();
+        },
+
+        redirect: 'root.login',
       },
     ];
     permissionHelper.configure(configs);

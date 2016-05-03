@@ -1,0 +1,19 @@
+.dashboard-section {
+  > sidebar {
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    position: absolute;
+    text-align: center;
+    top: 40px;
+    width: 300px;
+  }
+
+  > .content-section {
+    border-left: 2px solid #ddd;
+    left: 300px;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+  }
+}
