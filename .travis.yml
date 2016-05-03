@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - "5"
+  - "6"
+script: ./test.sh
+cache:
+  directories:
+    - angularjs/node_modules
+    - angularjs/bower_components
+    - angularjs2/node_modules
+    - emberjs/node_modules
+    - emberjs/bower_components
+    - react-redux/node_modules
