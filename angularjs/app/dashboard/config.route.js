@@ -13,6 +13,15 @@
         templateUrl: 'app/dashboard/dashboard.html',
         controller: 'Dashboard',
         controllerAs: 'vm',
+        resolve: {
+          userData: function (userService) {
+            return userService.getUser();
+          },
+
+          starredData: function (userData, githubService) {
+            return githubService.getStarred(userData.login);
+          },
+        },
       });
   }
 })();
